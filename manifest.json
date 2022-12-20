@@ -1,7 +1,7 @@
 {   
     "manifest_version": 3,
     "name": "Api Monitor",
-    "description0": "监控请求耗时超出设定阈值的慢接口",
+    "description": "监控请求耗时超出设定阈值的慢接口",
     "version": "1.0",
     "icons": {
         "16": "images/eye-open-16.png",
