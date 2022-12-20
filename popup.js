@@ -5,14 +5,14 @@ const durationEdit = document.getElementById("duration-edit");
 window.addEventListener('load', ()=>{
     chrome.storage.local.get(["apiMonitorStatus"]).then((result) => {
         if (result.apiMonitorStatus === "true") {
-            button.innerText = "关闭API监控";
+            button.innerText = "关闭监控";
             durationEdit.style.display = 'none'
             durationRead.style.display = 'block';
             chrome.storage.local.get(["apiOvertime"]).then((result) => {
                 document.getElementById("duration-time-read").innerText = result.apiOvertime;
             });
         } else {
-            button.innerText = "开启API监控";
+            button.innerText = "启用监控";
             durationEdit.style.display = 'block'
             durationRead.style.display = 'none';
             chrome.storage.local.get(["apiOvertime"]).then((result) => {
@@ -50,11 +50,11 @@ button.addEventListener("click", function() {
 // 1: open 0: close
 function switchApiButton(status) {
     if (status === 1) {
-        button.innerText = "关闭API监控";
+        button.innerText = "关闭监控";
         durationEdit.style.display = 'none'
         durationRead.style.display = 'block';
     } else if (status === 0) {
-        button.innerText = "开启API监控";
+        button.innerText = "启用监控";
         durationEdit.style.display = 'block'
         durationRead.style.display = 'none';
         chrome.storage.local.get(["apiOvertime"]).then((result) => {

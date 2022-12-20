@@ -29,7 +29,7 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 
 function notifyMe(message) {
     apiMonitorAlterNum += 1;
-    const description = "API请求超时：" + message.api;
+    const description = "慢接口：" + message.api;
     const title = "总耗时：" + message.duration + "ms";  
     const alterTemplate = `
     <div class="ant-notification ant-notification-topRight" style="right: 0px; top: 24px; bottom: auto;">
@@ -70,11 +70,12 @@ function notifyMe(message) {
     notificationElem.innerHTML = alterTemplate;
     bodyElem.appendChild(notificationElem);
     const notificationCloseList = document.getElementsByClassName("ant-notification-notice-close-x");
-    const notificationClose = notificationCloseList[notificationCloseList.length-1]
-;    notificationClose.addEventListener("click", () => {
+    const notificationClose = notificationCloseList[notificationCloseList.length-1];
+        notificationClose.addEventListener("click", () => {
         const nofictionElem = document.getElementById(elemId);
         nofictionElem.parentNode.removeChild(nofictionElem);
     });
+  
     setTimeout(() => {
         const nofictionElem = document.getElementById(elemId);
         nofictionElem?.parentNode.removeChild(nofictionElem);  
