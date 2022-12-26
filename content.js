@@ -29,7 +29,8 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 function addNotificationDiv() {
     const notificationElems = document.getElementsByClassName("ant-notification ant-notification-topRight")
     if (notificationElems.length === 0) {
-        const bodyElem = document.getElementsByTagName('body')[0];
+        // const bodyElem = document.getElementsByTagName('body')[0];
+        const bodyElem = document.body;
         const notficationDiv = document.createElement('div');
         notficationDiv.innerHTML = `
         <div class="ant-notification ant-notification-topRight" style="right: 0px; top: 24px; bottom: auto;">
